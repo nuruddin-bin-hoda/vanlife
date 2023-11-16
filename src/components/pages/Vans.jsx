@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import startServer from "../../../server";
-startServer();
 
 export default function Vans({ className }) {
   const [vans, setVans] = useState([]);

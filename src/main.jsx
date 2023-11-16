@@ -4,6 +4,8 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./components/App";
 import GlobalStyle from "./components/styles/Global.styles";
 
+import "../server";
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <GlobalStyle />
