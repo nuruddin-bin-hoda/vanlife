@@ -12,6 +12,7 @@ const StyledVans = styled(Vans)`
     justify-items: center;
     gap: 34px;
     margin-top: 57px;
+    margin-bottom: 57px;
   }
 
   .van-tile a {
