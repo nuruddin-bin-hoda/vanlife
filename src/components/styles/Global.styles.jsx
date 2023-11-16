@@ -11,6 +11,15 @@ const GlobalStyle = createGlobalStyle`
     background-color: #FFF7ED;
     font-family: 'Inter', sans-serif;
   }
+
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+  body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 `;
 
 export default GlobalStyle;
