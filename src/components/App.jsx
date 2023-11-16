@@ -6,6 +6,7 @@ import StyledAbout from "./styles/About.styles";
 export default function App() {
   return (
     <>
+      <h1>My App</h1>
       <StyledHeader />
       <Routes>
         <Route path="/" element={<StyledHome />} />
