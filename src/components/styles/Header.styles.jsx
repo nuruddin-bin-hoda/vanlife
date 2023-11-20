@@ -28,6 +28,12 @@ const StyledHeader = styled(Header)`
     color: #161616;
     text-decoration: underline;
   }
+
+  .active-link {
+    color: black;
+    text-decoration: underline;
+    font-weight: bold;
+  }
 `;
 
 export default StyledHeader;

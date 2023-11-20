@@ -4,6 +4,7 @@ import HostLayout from "../HostLayout";
 const StyledHostLayout = styled(HostLayout)`
   & {
     display: flex;
+    margin-bottom: 3rem;
   }
 
   & a {
@@ -17,6 +18,12 @@ const StyledHostLayout = styled(HostLayout)`
     color: #161616;
     text-decoration: underline;
     font-weight: 600;
+  }
+
+  .active-link {
+    color: black;
+    text-decoration: underline;
+    font-weight: bold;
   }
 `;
 
