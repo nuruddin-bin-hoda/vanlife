@@ -8,6 +8,7 @@ export default function App() {
   return (
     <>
       <StyledHeader />
+      <h1>Some text for test</h1>
       <Routes>
         <Route path="/" element={<StyledHome />} />
         <Route path="about" element={<StyledAbout />} />
