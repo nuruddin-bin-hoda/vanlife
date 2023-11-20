@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import StyledHeader from "./styles/Header.styles";
-import Footer from "./Footer";
+import StyledFooter from "./styles/Footer.styles";
 
 export default function Layout({ className }) {
   return (
@@ -9,7 +9,7 @@ export default function Layout({ className }) {
       <main>
         <Outlet />
       </main>
-      <Footer />
+      <StyledFooter />
     </div>
   );
 }

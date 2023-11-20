@@ -1,14 +1,7 @@
-export default function Footer() {
-  const footerStyles = {
-    backgroundColor: "black",
-    color: "white",
-    textAlign: "center",
-    padding: "1rem 0",
-  };
-
+export default function Footer({ className }) {
   return (
-    <div style={footerStyles}>
-      <footer>&#169; 2023 #VANLIFE</footer>
-    </div>
+    <footer className={className}>
+      <span>&#169; 2023 #VANLIFE</span>
+    </footer>
   );
 }
