@@ -2,10 +2,21 @@ import styled from "styled-components";
 import HostLayout from "../HostLayout";
 
 const StyledHostLayout = styled(HostLayout)`
-  a {
+  & {
+    display: flex;
+  }
+
+  & a {
     text-decoration: none;
-    margin: 0 1rem;
-    font-size: 1rem;
+    color: #4d4d4d;
+    font-weight: 500;
+    padding: 5px 20px;
+  }
+
+  & a:hover {
+    color: #161616;
+    text-decoration: underline;
+    font-weight: 600;
   }
 `;
 
