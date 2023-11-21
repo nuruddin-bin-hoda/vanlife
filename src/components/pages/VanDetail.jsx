@@ -1,9 +1,15 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation, useLoaderData } from "react-router-dom";
 
 export default function VanDetail({ className }) {
   const [van, setVan] = useState({});
   const { id } = useParams();
+  const {
+    state: { search, type },
+  } = useLocation();
+
+  const goBackLink = search ? `?${search}` : "";
+  const backMsg = type ? `Back to ${type} vans` : "Back to all vans";
 
   useEffect(() => {
     fetch(`/api/vans/${id}`)
@@ -15,8 +21,8 @@ export default function VanDetail({ className }) {
     <>
       {van ? (
         <div className={className}>
-          <Link to=".." relative="path" className="back-link">
-            &larr; Back to all vans
+          <Link to={`..${goBackLink}`} relative="path" className="back-link">
+            &larr; {backMsg}
           </Link>
 
           <img src={van.imageUrl} />
