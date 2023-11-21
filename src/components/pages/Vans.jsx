@@ -1,15 +1,27 @@
 import { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { getVans } from "../../../api";
 
 export default function Vans({ className }) {
   const [vans, setVans] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const typeFilter = searchParams.get("type");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("/api/vans")
-      .then((res) => res.json())
-      .then((data) => setVans(data.vans));
+    (async function loadVans() {
+      setLoading(true);
+
+      try {
+        const vans = await getVans();
+        setVans(vans);
+      } catch (e) {
+        setError(e);
+      } finally {
+        setLoading(false);
+      }
+    })();
   }, []);
 
   const filteredVans = typeFilter
@@ -38,6 +50,15 @@ export default function Vans({ className }) {
       </div>
     );
   });
+
+  if (error) {
+    return (
+      <div style={{ marginLeft: "1rem" }}>
+        <h1>{error.status}</h1>
+        <h2>There was an error: {error.message}</h2>
+      </div>
+    );
+  }
 
   return (
     <div className={className}>
@@ -78,10 +99,10 @@ export default function Vans({ className }) {
         ) : null}
       </div>
 
-      {vans.length > 0 ? (
-        <div className="van-list">{vanElements}</div>
-      ) : (
+      {loading ? (
         <h2>Loading...</h2>
+      ) : (
+        <div className="van-list">{vanElements}</div>
       )}
     </div>
   );
