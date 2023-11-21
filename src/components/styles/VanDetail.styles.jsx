@@ -39,6 +39,13 @@ const StyledVanDetail = styled(VanDetail)`
     color: white;
     font-size: 1.125rem;
   }
+
+  .back-link {
+    margin: 0 26px;
+    font-size: 1rem;
+    color: black;
+    font-weight: 500;
+  }
 `;
 
 export default StyledVanDetail;

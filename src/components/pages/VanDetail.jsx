@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 export default function VanDetail({ className }) {
   const [van, setVan] = useState({});
@@ -15,6 +15,10 @@ export default function VanDetail({ className }) {
     <>
       {van ? (
         <div className={className}>
+          <Link to=".." relative="path" className="back-link">
+            &larr; Back to all vans
+          </Link>
+
           <img src={van.imageUrl} />
           <i className={`van-type ${van.type} selected`}>{van.type}</i>
           <h2>{van.name}</h2>
