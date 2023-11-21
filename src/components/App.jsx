@@ -13,6 +13,7 @@ import StyledHostVanDetail from "./styles/HostVanDetail.styles";
 import HostVanInfo from "./pages/Host/HostVanInfo";
 import HostVanPricing from "./pages/Host/HostVanPricing";
 import HostVanPhotos from "./pages/Host/HostVanPhotos";
+import StyledNotFoundPage from "./styles/NotFoundPage.styles";
 
 export default function App() {
   return (
@@ -36,8 +37,11 @@ export default function App() {
             <Route path="pricing" element={<HostVanPricing />} />
             <Route path="photos" element={<HostVanPhotos />} />
           </Route>
+
           <Route path="reviews" element={<Reviews />} />
         </Route>
+
+        <Route path="*" element={<StyledNotFoundPage />} />
       </Route>
     </Routes>
   );
