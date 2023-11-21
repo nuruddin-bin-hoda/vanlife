@@ -32,6 +32,7 @@ export default function HostVansDetail({ className }) {
               <h4>${van.price}/day</h4>
             </div>
           </div>
+
           <nav className="host-van-detail-nav">
             <NavLink
               style={({ isActive }) => (isActive ? activeStyles : null)}
@@ -53,7 +54,8 @@ export default function HostVansDetail({ className }) {
               Photos
             </NavLink>
           </nav>
-          <Outlet />
+
+          <Outlet context={van} />
         </div>
       </section>
     </>
