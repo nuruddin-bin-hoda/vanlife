@@ -20,6 +20,7 @@ import HostVanInfo from "./pages/Host/HostVanInfo";
 import HostVanPricing from "./pages/Host/HostVanPricing";
 import HostVanPhotos from "./pages/Host/HostVanPhotos";
 import StyledNotFoundPage from "./styles/NotFoundPage.styles";
+import StyledError from "./styles/Error.styles";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,7 +29,12 @@ const router = createBrowserRouter(
       <Route path="about" element={<StyledAbout />} />
 
       <Route path="vans">
-        <Route index element={<StyledVans />} loader={vansLoader} />
+        <Route
+          index
+          element={<StyledVans />}
+          loader={vansLoader}
+          errorElement={<StyledError />}
+        />
         <Route path=":id" element={<StyledVanDetail />} />
       </Route>
 
