@@ -3,6 +3,7 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
+  redirect,
 } from "react-router-dom";
 import StyledHome from "./styles/Home.styles";
 import StyledAbout from "./styles/About.styles";
@@ -21,12 +22,14 @@ import HostVanPricing from "./pages/Host/HostVanPricing";
 import HostVanPhotos from "./pages/Host/HostVanPhotos";
 import StyledNotFoundPage from "./styles/NotFoundPage.styles";
 import StyledError from "./styles/Error.styles";
+import StyledLogin from "./styles/Login.styles";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<StyledLayout />}>
       <Route index element={<StyledHome />} />
       <Route path="about" element={<StyledAbout />} />
+      <Route path="login" element={<StyledLogin />} />
 
       <Route path="vans">
         <Route

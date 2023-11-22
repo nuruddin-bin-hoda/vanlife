@@ -25,6 +25,12 @@ export default function Header({ className }) {
         >
           Vans
         </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "active-link" : null)}
+          to="login"
+        >
+          Login
+        </NavLink>
       </nav>
     </header>
   );
