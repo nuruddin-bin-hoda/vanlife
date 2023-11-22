@@ -3,13 +3,13 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
-  redirect,
 } from "react-router-dom";
 import StyledHome from "./styles/Home.styles";
 import StyledAbout from "./styles/About.styles";
 import StyledVans from "./styles/Vans.styles";
 import { loader as vansLoader } from "./pages/Vans";
 import StyledVanDetail from "./styles/VanDetail.styles";
+import { loader as vanDetailLoader } from "./pages/VanDetail";
 import StyledLayout from "./styles/Layout.styles";
 import StyledHostLayout from "./styles/HostLayout.styles";
 import Dashboard from "./pages/Dashboard";
@@ -38,7 +38,11 @@ const router = createBrowserRouter(
           loader={vansLoader}
           errorElement={<StyledError />}
         />
-        <Route path=":id" element={<StyledVanDetail />} />
+        <Route
+          path="/vans:id"
+          element={<StyledVanDetail />}
+          loader={vanDetailLoader}
+        />
       </Route>
 
       <Route path="host" element={<StyledHostLayout />}>
