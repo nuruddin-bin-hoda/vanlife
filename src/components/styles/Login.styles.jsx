@@ -52,6 +52,12 @@ const StyledLogin = styled(Login)`
     margin-top: 22px;
     color: white;
     font-family: "Inter", sans-serif;
+    cursor: pointer;
+  }
+
+  .login-form > button:disabled {
+    background-color: #ff8b38bd;
+    cursor: default;
   }
 `;
 
