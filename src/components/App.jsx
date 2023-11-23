@@ -26,6 +26,7 @@ import StyledNotFoundPage from "./styles/NotFoundPage.styles";
 import StyledError from "./styles/Error.styles";
 import StyledLogin from "./styles/Login.styles";
 import { requireAuth } from "../../utils";
+import { requireAuthLink } from "../../utils";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -52,9 +53,13 @@ const router = createBrowserRouter(
         <Route
           index
           element={<Dashboard />}
+          loader={async () => await requireAuthLink()}
+        />
+        <Route
+          path="income"
+          element={<Income />}
           loader={async () => await requireAuth()}
         />
-        <Route path="income" element={<Income />} />
         <Route
           path="vans"
           element={<StyledHostVans />}
@@ -71,7 +76,11 @@ const router = createBrowserRouter(
           <Route path="photos" element={<HostVanPhotos />} />
         </Route>
 
-        <Route path="reviews" element={<Reviews />} />
+        <Route
+          path="reviews"
+          element={<Reviews />}
+          loader={async () => await requireAuth()}
+        />
       </Route>
 
       <Route path="*" element={<StyledNotFoundPage />} />

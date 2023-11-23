@@ -1,6 +1,6 @@
 import { redirect } from "react-router-dom";
 
-export async function requireAuth() {
+export async function requireAuthLink() {
   const isLoggedIn = false;
 
   if (!isLoggedIn) {
@@ -8,4 +8,16 @@ export async function requireAuth() {
     response.body = true;
     return response;
   }
+
+  return null;
+}
+
+export async function requireAuth() {
+  const isLoggedIn = false;
+
+  if (!isLoggedIn) {
+    throw redirect("/login");
+  }
+
+  return null;
 }
