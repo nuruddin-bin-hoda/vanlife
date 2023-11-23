@@ -1,25 +1,23 @@
-import { useState } from "react";
+import React from "react";
 
 export default function Login({ className }) {
-  const [loginFormData, setLoginFormData] = useState({
+  const [loginFormData, setLoginFormData] = React.useState({
     email: "",
     password: "",
   });
 
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
     console.log(loginFormData);
-    setLoginFormData({ email: "", password: "" });
-  };
+  }
 
-  const handleChange = (e) => {
+  function handleChange(e) {
     const { name, value } = e.target;
-
-    setLoginFormData((pData) => ({
-      ...pData,
+    setLoginFormData((prev) => ({
+      ...prev,
       [name]: value,
     }));
-  };
+  }
 
   return (
     <div className={className}>

@@ -25,6 +25,7 @@ import HostVanPhotos from "./pages/Host/HostVanPhotos";
 import StyledNotFoundPage from "./styles/NotFoundPage.styles";
 import StyledError from "./styles/Error.styles";
 import StyledLogin from "./styles/Login.styles";
+import { requireAuth } from "../../utils";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -48,7 +49,11 @@ const router = createBrowserRouter(
       </Route>
 
       <Route path="host" element={<StyledHostLayout />}>
-        <Route index element={<Dashboard />} />
+        <Route
+          index
+          element={<Dashboard />}
+          loader={async () => await requireAuth()}
+        />
         <Route path="income" element={<Income />} />
         <Route
           path="vans"
