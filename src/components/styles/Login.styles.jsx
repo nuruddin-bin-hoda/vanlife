@@ -10,6 +10,11 @@ const StyledLogin = styled(Login)`
     margin-bottom: 2rem;
   }
 
+  & > h2 {
+    color: #cc0000;
+    margin-top: 0;
+  }
+
   .login-form {
     display: flex;
     flex-direction: column;
