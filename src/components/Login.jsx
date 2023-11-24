@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react-refresh/only-export-components */
-import { useState } from "react";
 import {
   useLoaderData,
   Form,
@@ -18,12 +17,13 @@ export async function action({ request }) {
   const formData = await request.formData();
   const email = formData.get("email");
   const password = formData.get("password");
+  const redirectTo = new URL(request.url).searchParams.get("redirectTo") || "/";
 
   try {
     await loginUser({ email, password });
     localStorage.setItem("loggedin", true);
 
-    const res = redirect("/host");
+    const res = redirect(redirectTo);
     res.body = true;
     return res;
   } catch (e) {
