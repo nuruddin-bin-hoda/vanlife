@@ -1,6 +1,14 @@
-import { NavLink, Link } from "react-router-dom";
+/* eslint-disable react/prop-types */
+import { NavLink, Link, useNavigate } from "react-router-dom";
 
 export default function Header({ className }) {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("loggedin");
+    navigate("/", { replace: true });
+  };
+
   return (
     <header className={className}>
       <Link to="/" className="site-logo">
@@ -31,6 +39,7 @@ export default function Header({ className }) {
         >
           Login
         </NavLink>
+        <button onClick={handleLogout}>Logout</button>
       </nav>
     </header>
   );

@@ -25,7 +25,10 @@ import HostVanPhotos from "./pages/Host/HostVanPhotos";
 import StyledNotFoundPage from "./styles/NotFoundPage.styles";
 import StyledError from "./styles/Error.styles";
 import StyledLogin from "./styles/Login.styles";
-import { loader as lgoinLoader } from "../components/Login";
+import {
+  loader as lgoinLoader,
+  action as loginAction,
+} from "../components/Login";
 import { requireAuth } from "../../utils";
 import { requireAuthLink } from "../../utils";
 
@@ -34,7 +37,12 @@ const router = createBrowserRouter(
     <Route element={<StyledLayout />}>
       <Route index element={<StyledHome />} />
       <Route path="about" element={<StyledAbout />} />
-      <Route path="login" element={<StyledLogin />} loader={lgoinLoader} />
+      <Route
+        path="login"
+        element={<StyledLogin />}
+        loader={lgoinLoader}
+        action={loginAction}
+      />
 
       <Route path="vans">
         <Route
