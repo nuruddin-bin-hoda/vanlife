@@ -86,7 +86,7 @@ createServer({
   routes() {
     this.namespace = "api";
     this.logging = false;
-    // this.timing = 0;
+    this.timing = 1000;
 
     this.get("/vans", (schema) => {
       // return new Response(400, {}, { error: "Error fetching data" });
