@@ -1,4 +1,5 @@
-import { Link, useRouteError } from "react-router-dom";
+/* eslint-disable react/prop-types */
+import { useRouteError } from "react-router-dom";
 
 export default function Error({ className }) {
   const { message, status, statusText } = useRouteError();
