@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { BsStarFill } from "react-icons/bs";
-import graphImg from "../../../../public/images/reviews-graph.png";
+import graphImg from "/images/reviews-graph.png";
 
 export default function Reviews({ className }) {
   const reviewsData = [

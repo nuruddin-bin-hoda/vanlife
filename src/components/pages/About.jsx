@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import bgImg from "/images/about-hero.png";
 import { Link } from "react-router-dom";
 

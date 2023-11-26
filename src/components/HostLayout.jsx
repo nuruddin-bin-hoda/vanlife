@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { NavLink, Outlet } from "react-router-dom";
 
 export default function HostLayout({ className }) {

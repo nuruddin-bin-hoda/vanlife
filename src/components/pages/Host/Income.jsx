@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import graphImg from "../../../../public/images/income-graph.png";
+import graphImg from "/images/income-graph.png";
 
 export default function Income({ className }) {
   const transactionsData = [

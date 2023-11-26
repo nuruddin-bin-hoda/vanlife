@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Outlet } from "react-router-dom";
 import StyledHeader from "./styles/Header.styles";
 import StyledFooter from "./styles/Footer.styles";
