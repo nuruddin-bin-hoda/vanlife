@@ -30,7 +30,6 @@ import {
   loader as lgoinLoader,
   action as loginAction,
 } from "../components/Login";
-import { requireAuth } from "../../utils";
 import { requireAuthLink } from "../../utils";
 
 const router = createBrowserRouter(
