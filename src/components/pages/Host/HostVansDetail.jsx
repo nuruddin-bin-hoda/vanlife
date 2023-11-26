@@ -1,16 +1,16 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react-refresh/only-export-components */
 import { Link, NavLink, Outlet, useLoaderData } from "react-router-dom";
-import { getHostVans } from "../../../../api";
+import { getVan } from "../../../../api";
 import { requireAuth } from "../../../../utils";
 
 export async function loader({ params: { id } }) {
   await requireAuth();
-  return getHostVans(id);
+  return getVan(id);
 }
 
 export default function HostVansDetail({ className }) {
-  const van = useLoaderData()[0];
+  const van = useLoaderData();
 
   const activeStyles = {
     fontWeight: "bold",

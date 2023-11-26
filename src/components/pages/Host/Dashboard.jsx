@@ -2,7 +2,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import React from "react";
 import { Link, defer, Await, useLoaderData } from "react-router-dom";
-import { getHostVans } from "../../../../api";
+import { getVans } from "../../../../api";
 import { requireAuthLink } from "../../../../utils";
 import { BsStarFill } from "react-icons/bs";
 
@@ -13,7 +13,7 @@ export async function loader({ request }) {
     return await requireAuthLink(request);
   }
 
-  return defer({ vans: getHostVans() });
+  return defer({ vans: getVans() });
 }
 
 export default function Dashboard({ className }) {

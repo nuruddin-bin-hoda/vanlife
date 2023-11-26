@@ -1,36 +1,40 @@
-export async function getVans(id) {
-  const url = id ? `/api/vans/${id}` : "/api/vans";
-  const res = await fetch(url);
+import { initializeApp } from "firebase/app";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  doc,
+  getDoc,
+} from "firebase/firestore/lite";
 
-  if (!res.ok) {
-    throw {
-      message: "Failed to fetch data",
-      statusText: res.statusText,
-      status: res.status,
-    };
-  }
+const firebaseConfig = {
+  apiKey: "AIzaSyDygjLhG0y437mJQmzEe1gHnlDW40Sfp3Y",
+  authDomain: "vanlife-111.firebaseapp.com",
+  projectId: "vanlife-111",
+  storageBucket: "vanlife-111.appspot.com",
+  messagingSenderId: "603567805333",
+  appId: "1:603567805333:web:16ae2f7c2b31e41036dc9c",
+};
 
-  const data = await res.json();
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-  if (id) return data.van;
-  return data.vans;
+export async function getVans() {
+  const vansCollectionRef = collection(db, "vans");
+  const querySnapshot = await getDocs(vansCollectionRef);
+  return querySnapshot.docs.map((doc) => ({
+    ...doc.data(),
+    id: doc.id,
+  }));
 }
 
-export async function getHostVans(id) {
-  const url = id ? `/api/host/vans/${id}` : "/api/host/vans";
-  const res = await fetch(url);
-
-  if (!res.ok) {
-    throw {
-      message: "Failed to fetch data",
-      statusText: res.statusText,
-      status: res.status,
-    };
-  }
-
-  const data = await res.json();
-
-  return data.vans;
+export async function getVan(id) {
+  const docRef = doc(db, "vans", id);
+  const vanSnapshot = await getDoc(docRef);
+  return {
+    ...vanSnapshot.data(),
+    id: vanSnapshot.id,
+  };
 }
 
 export async function loginUser(creds) {
