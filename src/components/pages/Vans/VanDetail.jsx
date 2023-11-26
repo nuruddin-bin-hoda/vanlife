@@ -1,5 +1,7 @@
+/* eslint-disable react-refresh/only-export-components */
+/* eslint-disable react/prop-types */
 import { Link, useLocation, useLoaderData } from "react-router-dom";
-import { getVans } from "../../../api";
+import { getVans } from "../../../../api";
 
 export function loader({ params: { id } }) {
   return getVans(id);

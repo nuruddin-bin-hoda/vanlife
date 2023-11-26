@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import HostVans from "../pages/HostVans";
+import HostVans from "../../pages/Host/HostVans";
 
 const StyledHostVans = styled(HostVans)`
   .host-van-link-wrapper {

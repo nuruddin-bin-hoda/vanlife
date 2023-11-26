@@ -6,20 +6,20 @@ import {
 } from "react-router-dom";
 import StyledHome from "./styles/Home.styles";
 import StyledAbout from "./styles/About.styles";
-import StyledVans from "./styles/Vans.styles";
-import { loader as vansLoader } from "./pages/Vans";
-import StyledVanDetail from "./styles/VanDetail.styles";
-import { loader as vanDetailLoader } from "./pages/VanDetail";
+import StyledVans from "./styles/Vans/Vans.styles";
+import { loader as vansLoader } from "./pages/Vans/Vans";
+import StyledVanDetail from "./styles/Vans/VanDetail.styles";
+import { loader as vanDetailLoader } from "./pages/Vans/VanDetail";
 import StyledLayout from "./styles/Layout.styles";
 import StyledHostLayout from "./styles/HostLayout.styles";
 import StyledDashboard from "./styles/Host/Dashboard.styles";
-import { loader as dashboardLoader } from "./pages/Dashboard";
+import { loader as dashboardLoader } from "./pages/Host/Dashboard";
 import StyledIncome from "./styles/Host/Income.styles";
 import StyledReviews from "./styles/Host/Reviews.styles";
-import StyledHostVans from "./styles/HostVans.styles";
-import { loader as hostVansLoader } from "./pages/HostVans";
-import StyledHostVanDetail from "./styles/HostVanDetail.styles";
-import { loader as hostVansDetailLoader } from "./pages/HostVansDetail";
+import StyledHostVans from "./styles/Host/HostVans.styles";
+import { loader as hostVansLoader } from "./pages/Host/HostVans";
+import StyledHostVanDetail from "./styles/Host/HostVanDetail.styles";
+import { loader as hostVansDetailLoader } from "./pages/Host/HostVansDetail";
 import HostVanInfo from "./pages/Host/HostVanInfo";
 import HostVanPricing from "./pages/Host/HostVanPricing";
 import HostVanPhotos from "./pages/Host/HostVanPhotos";
@@ -30,7 +30,7 @@ import {
   loader as lgoinLoader,
   action as loginAction,
 } from "../components/Login";
-import { requireAuthLink } from "../../utils";
+import { requireAuth } from "../../utils";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -64,7 +64,8 @@ const router = createBrowserRouter(
         <Route
           path="income"
           element={<StyledIncome />}
-          loader={async ({ request }) => await requireAuthLink(request)}
+          loader={async () => await requireAuth()}
+          errorElement={<StyledError />}
         />
         <Route
           path="vans"
@@ -87,7 +88,7 @@ const router = createBrowserRouter(
         <Route
           path="reviews"
           element={<StyledReviews />}
-          loader={async ({ request }) => await requireAuthLink(request)}
+          loader={async () => await requireAuth()}
         />
       </Route>
 

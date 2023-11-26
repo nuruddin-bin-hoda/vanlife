@@ -1,7 +1,9 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react-refresh/only-export-components */
 import { Suspense } from "react";
 import { Link, useLoaderData, defer, Await } from "react-router-dom";
-import { getHostVans } from "../../../api";
-import { requireAuth } from "../../../utils";
+import { getHostVans } from "../../../../api";
+import { requireAuth } from "../../../../utils";
 
 export async function loader() {
   await requireAuth();

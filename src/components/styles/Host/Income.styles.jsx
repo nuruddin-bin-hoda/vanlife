@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Income from "../../pages/Income";
+import Income from "../../pages/Host/Income";
 
 const StyledIncome = styled(Income)`
   & {

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Reviews from "../../pages/Reviews";
+import Reviews from "../../pages/Host/Reviews";
 
 const StyledReviews = styled(Reviews)`
   & {

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Dashboard from "../../pages/Dashboard";
+import Dashboard from "../../pages/Host/Dashboard";
 
 const StyledDashboard = styled(Dashboard)`
   & .host-dashboard-earnings {

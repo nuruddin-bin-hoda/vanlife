@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Vans from "../pages/Vans";
+import Vans from "../../pages/Vans/Vans";
 
 const StyledVans = styled(Vans)`
   & {

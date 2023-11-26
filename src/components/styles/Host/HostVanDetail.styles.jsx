@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import HostVansDetail from "../pages/HostVansDetail";
+import HostVansDetail from "../../pages/Host/HostVansDetail";
 
 const StyledHostVanDetail = styled(HostVansDetail)`
   .back-link {
