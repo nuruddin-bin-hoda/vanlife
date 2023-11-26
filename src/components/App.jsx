@@ -31,6 +31,7 @@ import {
   action as loginAction,
 } from "../components/Login";
 import { requireAuth } from "../../utils";
+import { requireAuthLink } from "../../utils";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -64,7 +65,7 @@ const router = createBrowserRouter(
         <Route
           path="income"
           element={<StyledIncome />}
-          loader={async () => await requireAuth()}
+          loader={async ({ request }) => await requireAuthLink(request)}
         />
         <Route
           path="vans"
@@ -87,7 +88,7 @@ const router = createBrowserRouter(
         <Route
           path="reviews"
           element={<StyledReviews />}
-          loader={async () => await requireAuth()}
+          loader={async ({ request }) => await requireAuthLink(request)}
         />
       </Route>
 

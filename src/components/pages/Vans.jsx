@@ -11,7 +11,7 @@ import {
 import { getVans } from "../../../api";
 
 // get vans data
-export function loader() {
+export async function loader() {
   return defer({ vans: getVans() });
 }
 

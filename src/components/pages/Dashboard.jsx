@@ -7,7 +7,12 @@ import { requireAuthLink } from "../../../utils";
 import { BsStarFill } from "react-icons/bs";
 
 export async function loader({ request }) {
-  await requireAuthLink(request);
+  const isLoggedIn = JSON.parse(localStorage.getItem("loggedin"));
+
+  if (!isLoggedIn) {
+    return await requireAuthLink(request);
+  }
+
   return defer({ vans: getHostVans() });
 }
 
